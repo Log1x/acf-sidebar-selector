@@ -71,6 +71,7 @@ class SidebarSelectorField extends \acf_field
             $field['label'],
             $field['key']
         );
+
         acf_render_field($field);
 
         echo '</div>';
