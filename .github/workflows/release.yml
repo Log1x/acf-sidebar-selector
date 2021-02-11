@@ -3,7 +3,7 @@ name: Publish release
 on:
   push:
     tags:
-      - '*'
+      - "*"
 
 jobs:
   release:
@@ -16,7 +16,7 @@ jobs:
       - name: Setup PHP, with composer and extensions
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '7.3'
+          php-version: "7.3"
           coverage: xdebug
         env:
           COMPOSER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -29,17 +29,17 @@ jobs:
         run: echo ::set-output name=version::${GITHUB_REF/refs\/tags\//}
         shell: bash
       - name: Create subfolder
-        run: mkdir acf-phone-number && mv ./* acf-phone-number/ 2>/dev/null
+        run: mkdir acf-sidebar-selector && mv ./* acf-sidebar-selector/ 2>/dev/null
         continue-on-error: true
       - name: Create distributable zip file
         uses: montudor/action-zip@v0.1.0
         with:
-          args: zip -qq -r9 acf-phone-number.zip acf-phone-number
+          args: zip -qq -r9 acf-sidebar-selector.zip acf-sidebar-selector
       - name: Upload zip as release asset
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: acf-phone-number.zip
-          asset_name: acf-phone-number-${{ steps.get_version.outputs.version }}.zip
+          file: acf-sidebar-selector.zip
+          asset_name: acf-sidebar-selector-${{ steps.get_version.outputs.version }}.zip
           tag: ${{ github.ref }}
           overwrite: true
