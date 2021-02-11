@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin Name: Advanced Custom Fields: Sidebar Selector
  * Plugin URI:  https://github.com/log1x/acf-sidebar-selector
