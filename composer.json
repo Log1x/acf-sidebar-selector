@@ -4,11 +4,16 @@
   "description": "A simple ACF sidebar selector field.",
   "keywords": [
     "wordpress",
-    "acf"
+    "acf",
+    "acf-field"
   ],
+  "autoload": {
+    "psr-4": {
+      "Log1x\\AcfSidebarSelector\\": "src/"
+    }
+  },
   "require": {
-    "php": ">=7.1.3",
-    "composer/installers": "~1.0"
+    "php": ">=7.1.3"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.4"

@@ -2,13 +2,13 @@
 
 ![Latest Stable Version](https://img.shields.io/packagist/v/log1x/acf-sidebar-selector?style=flat-square)
 ![Total Downloads](https://img.shields.io/packagist/dt/log1x/acf-sidebar-selector?style=flat-square)
+![Build Status](https://img.shields.io/github/workflow/status/log1x/acf-sidebar-selector/Compatibility%20Checks)
 
 A simple sidebar select field for Advanced Custom Fields that uses Select2.
 
 ## Requirements
 
 - [PHP](https://secure.php.net/manual/en/install.php) >= 7.1.3
-- [Composer](https://getcomposer.org/download/)
 
 ## Installation
 

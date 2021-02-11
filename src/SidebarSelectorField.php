@@ -2,61 +2,78 @@
 
 namespace Log1x\AcfSidebarSelector;
 
-class SidebarSelector extends \acf_field
+class SidebarSelectorField extends \acf_field
 {
     /**
-     * Field Name
+     * The field name.
      *
      * @var string
      */
     public $name = 'sidebar_selector';
 
     /**
-     * Field Label
+     * The field label.
      *
      * @var string
      */
     public $label = 'Sidebar Selector';
 
     /**
-     * Field Category
+     * The field category.
      *
      * @var string
      */
     public $category = 'relational';
 
     /**
-     * Field Defaults
+     * The field defaults.
      *
      * @var array
      */
-    public $defaults = [];
+    public $defaults = ['ui' => 1, 'multiple' => 0, 'ajax' => 0];
 
     /**
-     * Enable/Disable Enqueuing Assets
+     * Create a new phone number field instance.
      *
-     * @var boolean
-     */
-    public $assets = false;
-
-    /**
-     * Settings
-     *
-     * @var object
-     */
-    private $settings;
-
-    /**
-     * Create a new instance of AcfSidebarSelector.
-     *
-     * @param  array $settings
+     * @param  string $uri
+     * @param  string $path
      * @return void
      */
-    public function __construct($settings)
+    public function __construct($uri, $path)
     {
-        $this->settings = (object) $settings;
+        $this->uri = $uri;
+        $this->path = $path;
 
         parent::__construct();
+    }
+
+    /**
+     * Create the HTML interface for your field.
+     *
+     * @param  array $field
+     * @return void
+     */
+    public function render_field($field)
+    {
+        $field = array_merge($field, [
+            'type' => 'select',
+            'placeholder' => 'Select a sidebar',
+            'choices' => $this->sidebars(),
+        ]);
+
+        echo sprintf(
+            '<div
+                class="acf-field acf-field-select"
+                data-name="%s"
+                data-type="select"
+                data-key="%s"
+            >',
+            $field['label'],
+            $field['key']
+        );
+        acf_render_field($field);
+
+        echo '</div>';
     }
 
     /**
@@ -83,31 +100,6 @@ class SidebarSelector extends \acf_field
             'default_value' => '1',
             'choices' => ['1' => 'Yes', '0' => 'No']
         ]);
-    }
-
-    /**
-     * Create the HTML interface for your field.
-     *
-     * @param  array $field
-     * @return void
-     */
-    public function render_field($field)
-    {
-        $field = array_merge($field, [
-            'type' => 'select',
-            'ui' => '1',
-            'placeholder' => 'Select a sidebar',
-            'choices' => $this->sidebars(),
-        ]);
-
-        echo "<div class='acf-field acf-field-select'
-        data-name='{$field['label']}'
-        data-type='select'
-        data-key='{$field['key']}'>";
-
-        acf_render_field($field);
-
-        echo '</div>';
     }
 
     /**
