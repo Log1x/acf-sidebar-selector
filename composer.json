@@ -1,6 +1,7 @@
 {
   "name": "log1x/acf-sidebar-selector",
   "type": "wordpress-plugin",
+  "license": "MIT",
   "description": "A simple ACF sidebar selector field.",
   "keywords": [
     "wordpress",
