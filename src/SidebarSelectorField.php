@@ -30,7 +30,13 @@ class SidebarSelectorField extends \acf_field
      *
      * @var array
      */
-    public $defaults = ['ui' => 1, 'multiple' => 0, 'ajax' => 0];
+    public $defaults = [
+        'ui' => 1,
+        'multiple' => 0,
+        'ajax' => 0,
+        'allow_null' => '1',
+        'default_value' => 'sidebar-primary',
+    ];
 
     /**
      * Create a new phone number field instance.
