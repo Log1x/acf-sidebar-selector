@@ -4,7 +4,7 @@
  * Plugin Name: Advanced Custom Fields: Sidebar Selector
  * Plugin URI:  https://github.com/log1x/acf-sidebar-selector
  * Description: A simple ACF sidebar selector field
- * Version:     1.0.1
+ * Version:     1.0.3
  * Author:      Brandon Nifong
  * Author URI:  https://github.com/log1x
  */
