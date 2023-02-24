@@ -2,7 +2,7 @@
 
 ![Latest Stable Version](https://img.shields.io/packagist/v/log1x/acf-sidebar-selector?style=flat-square)
 ![Total Downloads](https://img.shields.io/packagist/dt/log1x/acf-sidebar-selector?style=flat-square)
-![Build Status](https://img.shields.io/github/workflow/status/log1x/acf-sidebar-selector/Compatibility%20Checks)
+![Build Status](https://img.shields.io/github/actions/workflow/status/log1x/acf-sidebar-selector/compatibility.yml?branch=master&style=flat-square)
 
 A simple sidebar select field for Advanced Custom Fields that uses Select2.
 
