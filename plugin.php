@@ -4,7 +4,7 @@
  * Plugin Name: Advanced Custom Fields: Sidebar Selector
  * Plugin URI:  https://github.com/log1x/acf-sidebar-selector
  * Description: A simple ACF sidebar selector field
- * Version:     1.0.3
+ * Version:     1.1.0
  * Author:      Brandon Nifong
  * Author URI:  https://github.com/log1x
  */
@@ -25,10 +25,6 @@ add_filter('after_setup_theme', new class
         }
 
         $this->register();
-
-        if (defined('ACP_FILE')) {
-            $this->hookAdminColumns();
-        }
     }
 
     /**
@@ -46,25 +42,5 @@ add_filter('after_setup_theme', new class
                 );
             });
         }
-    }
-
-    /**
-     * Hook the Admin Columns Pro plugin to provide basic field support
-     * if detected on the current WordPress installation.
-     *
-     * @return void
-     */
-    protected function hookAdminColumns()
-    {
-        add_filter('ac/column/value', function ($value, $id, $column) {
-            if (
-                ! is_a($column, '\ACA\ACF\Column') ||
-                $column->get_acf_field_option('type') !== 'sidebar_selector'
-            ) {
-                return $value;
-            }
-
-            return get_field($column->get_meta_key()) ?? $value;
-        }, 10, 3);
     }
 });
